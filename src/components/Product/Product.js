@@ -6,6 +6,7 @@ import './Product.css';
 const Product = ({handleAddToCart, product}) => {
     // const {handleAddToCart, product} = props;
     const {name, img, seller, ratings, price}= product;
+    console.log('hellop fdfdiof')
     
     return (
         <div className='product'>
