@@ -6,11 +6,10 @@ import './Product.css';
 const Product = ({handleAddToCart, product}) => {
     // const {handleAddToCart, product} = props;
     const {name, img, seller, ratings, price}= product;
-    console.log('hellop fdfdiof')
     
     return (
         <div className='product'>
-           <img src={img} alt="hello this is a pictur" />
+           <img src={img} alt="hello this is a picturer " />
            <article>
            <h1>{name}</h1>
             <h3>Price: ${price}</h3>
