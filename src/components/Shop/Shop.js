@@ -1,12 +1,13 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { addToDb, getStoreCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
 
 const Shop = () => {
-    const [products, setProducts] = useState([]);
+    const products = useLoaderData();
     const [cart, setCart]= useState([]);
 
     const handleAddToCart = (selectedProduct)=>{
@@ -19,19 +20,14 @@ const Shop = () => {
         }
         else{
             const rest = cart.filter(product => product.id !== selectedProduct.id);
-            exists.quantity = exists.quantity + 1 ;
+            exists.quantity = exists.quantity + 1 ;{}
             newCart = [...rest, exists];
         }
 
         setCart(newCart);
         addToDb(selectedProduct.id);
     }
-    useEffect(()=>{
-        fetch('products.json')
-        .then(res => res.json())
-        .then(data => setProducts(data));
-        console.log('products loaded')
-    },[]) //it is not necessary that js will work as a syncronous function js can also work as a syncronous function so therefore we set a dependency product so that if it changes the  value useEffect will be called again.
+   //it is not necessary that js will work as a syncronous function js can also work as a syncronous function so therefore we set a dependency product so that if it changes the  value useEffect will be called again.
 
     useEffect(()=>{
         console.log('local storage first line');
