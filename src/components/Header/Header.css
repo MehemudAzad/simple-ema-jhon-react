@@ -21,7 +21,16 @@
     color: red;
 }
 .btn-logout{
-    padding: 5px 10px;
+    padding: .45rem .9rem;
+    border: none;
+    margin-left: 1.7rem;
+    background-color: rgb(18, 18, 109);
+    color: white;
+    border-radius: .3rem;
+}
+.header-email{
+    color: white;
+    margin-left: 1rem;
 }
 
 .active{

@@ -18,7 +18,18 @@
 }
 .form-control{
     margin-left: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 20px;   
+}
+.or-horizontal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.or-horizontal div{
+    background-color: #95A0A7;
+    width: 150px;
+    height: 1px;
+    margin: 1rem;
 }
 .form-control label{
     display: block;
@@ -35,11 +46,14 @@
     border-radius: 5px;
     font-size: 1.5em;
     padding-left: 10px;
+    /* margin-left: auto; */
+
+    /* margin-right: auto; */
 }
 .btn-submit{
     width: 415px;
-    height: 55px;
-    margin-top: 45px;
+    height: 3rem;
+    margin-top: 1.5rem;
     font-weight: 400;
     font-size: 21px;
     line-height: 25px;
@@ -51,4 +65,27 @@
 }
 .btn-submit:hover{
     background: rgba(255, 153, 0, 0.6);
+}
+.new-account-link{
+    color: #FF9900;
+    text-decoration: none;
+}
+.google-login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    border: 
+    #95A0A7 1px solid;
+    width: 83%;
+    margin: auto;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+
+}
+.google-login-container FcGoogle{
+    font-size: 1.7rem;
+}
+.google-login-container p{
+    font-size: 1.2rem;
 }

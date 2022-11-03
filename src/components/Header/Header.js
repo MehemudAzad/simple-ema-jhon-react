@@ -22,10 +22,10 @@ const Header = () => {
                 :
                 <>
                 <Link to='/login'>Login</Link>
-                <Link to='/signup'>Sign up</Link>
+                {/* <Link to='/signup'>Sign up</Link> */}
                 </>
             }
-            <span>{user?.email}</span>
+            <span className='header-email'>{user?.email}</span>
         </div>
        </nav>
     );

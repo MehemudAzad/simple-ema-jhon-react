@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
 import './SignUp.css'
 
 const SignUp = () => {
     const [error, setError] = useState(null);
-    const {createUser} = useContext(AuthContext);
+    const {createUser, googleSignIn} = useContext(AuthContext);
+
+    const navigate = useNavigate(); 
+    const location = useLocation(); //it returns the current location objects
+    const from  = location.state?.from?.pathname ||'/' //either go to the path if it exists or go to the homepage
 
     const handleSubmit = (event)=>{
         event.preventDefault(); 
@@ -25,6 +29,7 @@ const SignUp = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+            navigate(from, {replace: true}); //navigate to from and replace it with true
             form.reset();     
           })
         .catch(error => console.error(error))
