@@ -1,11 +1,10 @@
 .form-container{
     width: 500px;
-    height: 600px;
+    height: auto;
     margin: 20px auto;
     background: #ffffff;
     border: 1px solid #95A0A7;
     border-radius: 8px;
-    /* padding-left: 20px; */
 }
 .form-title{
     font-weight: 400;
@@ -88,4 +87,9 @@
 }
 .google-login-container p{
     font-size: 1.2rem;
+}
+
+.text-error{
+    color: rgb(199, 42, 42);
+    text-align: center;
 }

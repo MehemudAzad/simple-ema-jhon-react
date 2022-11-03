@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
 import './SignUp.css'
@@ -11,6 +12,15 @@ const SignUp = () => {
     const location = useLocation(); //it returns the current location objects
     const from  = location.state?.from?.pathname ||'/' //either go to the path if it exists or go to the homepage
 
+    const handleGoogleLogin =()=>{
+        googleSignIn()
+        .then(result=>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(err => console.log(err))
+    }
+
     const handleSubmit = (event)=>{
         event.preventDefault(); 
         
@@ -20,8 +30,14 @@ const SignUp = () => {
         const confirm = form.confirm.value;
         console.log(email, password, confirm);
 
+        //checking if the password is greater than 6 
         if(password.length < 6){
             setError('password must be 6 characters or more');
+            return;
+        }
+        //checking if the password is mismatched
+        if (password !== confirm) {
+            setError('Your Password did not match');
             return;
         }
 
@@ -53,7 +69,16 @@ const SignUp = () => {
             <input type="submit" className='btn-submit form-control' value="login" />
         </form>
             <p className='form-control'>Already have an account?<Link to='/login'>Login</Link></p>
-            <p>{error}</p>
+            <p className='text-error'>{error}</p>
+            <div className='or-horizontal'>
+               <div></div>
+                <p>or</p>
+               <div></div>
+            </div>
+            <div onClick={handleGoogleLogin} className='google-login-container'>
+                <FcGoogle className='google-icon'></FcGoogle>
+                <p>Continue with Google</p>
+            </div>
     </div>
     );
 };
