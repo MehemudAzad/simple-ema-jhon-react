@@ -5,9 +5,10 @@ import './Login.css'
 
 const Login = () => {
     const {signIn} = useContext(AuthContext);
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from  = location.state?.from?.pathname ||'/'
+    //setting the navigate function
+    const navigate = useNavigate(); 
+    const location = useLocation(); //it returns the current location objects
+    const from  = location.state?.from?.pathname ||'/' //either go to the path if it exists or go to the homepage
 
     const handleSubmit = event =>{
         // to prevent it from opening in a new window which is the default behaviour
@@ -19,14 +20,15 @@ const Login = () => {
         //you will get the value of the form field password
         const password = form.password.value;
 
+        //using the signIn mehtod
         signIn(email, password)
         .then(result =>{
             const user = result.user;
             console.log(user);
-            form.reset();
-            Navigate(from, {replace: true});
+            form.reset();  //reseting the form
+            Navigate(from, {replace: true}); //navigate to from and replace it with true
         })
-        .catch(error => console.error(error));
+        .catch(error => console.error(error));//catching the error if there was any error
     }
 
     return (

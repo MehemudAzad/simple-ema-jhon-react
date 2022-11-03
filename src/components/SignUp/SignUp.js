@@ -9,6 +9,7 @@ const SignUp = () => {
 
     const handleSubmit = (event)=>{
         event.preventDefault(); 
+        
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -19,10 +20,7 @@ const SignUp = () => {
             setError('password must be 6 characters or more');
             return;
         }
-        if(password !== confirm){
-            setError('Your password did not match');
-            return;
-        }
+
         createUser(email, password)
         .then(result =>{
             const user = result.user;
@@ -37,15 +35,15 @@ const SignUp = () => {
         <form onSubmit={handleSubmit}>
             <div className='form-control'>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="" required/>
+            <input type="email" name="email" id="email" required/>
             </div>
             <div className='form-control'>
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" id="" required />
+            <input type="password" name="password" id="password" required />
             </div>
             <div className='form-control'>
             <label htmlFor="confirm">Confirm password</label>
-            <input type="password" name="confirm" id="" required />
+            <input type="password" name="confirm" id="confirm" required />
             </div>
             <input type="submit" className='btn-submit form-control' value="login" />
         </form>

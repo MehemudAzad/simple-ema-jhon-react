@@ -1,9 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react';
 import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut} from 'firebase/auth';
-import app from '../firebase/firebase.init';
+import app from '../firebase/firebase.config';
+// import app from '../firebase/firebase.init';
 
 
 export const AuthContext = createContext();//we are creating the context
+
 const auth = getAuth(app);//we get the app from firebase.init.js
 
 const UserContext = ({children}) => {
@@ -13,7 +15,7 @@ const UserContext = ({children}) => {
     //creating the email and password account
     const createUser = (email, password) =>{
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, password, email)
+        return createUserWithEmailAndPassword(auth, password, email);
     }
     //for sign in functionality
     const signIn = (email, password) =>{
@@ -46,4 +48,6 @@ const UserContext = ({children}) => {
     );
 };
 
-export default UserContext;
+export default UserContext;//exporting the fuction usecontext 
+
+//we only write jsx insite the return of a fuction
