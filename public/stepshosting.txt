@@ -1,0 +1,6 @@
+one time for each computer
+
+1. npm install -g firebase-tools
+2.firebase login
+
+then you don't need to do it 

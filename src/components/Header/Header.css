@@ -20,3 +20,10 @@
 .header a:hover{
     color: red;
 }
+.btn-logout{
+    padding: 5px 10px;
+}
+
+.active{
+    color:red;
+  }
